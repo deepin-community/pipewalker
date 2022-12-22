@@ -1,0 +1,182 @@
+pipewalker (0.9.4-5) unstable; urgency=medium
+
+  * debian/control: bumped Standards-Version to 4.6.0.
+  * debian/patches/*.patch: added the 'Forwarded' field in all patches.
+  * debian/tests/control: avoided running xvfb-run tests in background to
+    receive the correct exit code from pipewalker.
+  * debian/watch: fix matching rule to reflect changes in GitHub releases page.
+
+ -- David da Silva Polverari <david.polverari@gmail.com>  Sun, 03 Oct 2021 02:07:59 +0000
+
+pipewalker (0.9.4-4) unstable; urgency=medium
+
+  * New maintainer. (Closes: #826925)
+  * Upstream development moved to Github. Consequently:
+      - debian/copyright: updated Source field.
+      - debian/upstream/metadata: updated.
+      - debian/watch: updated.
+
+ -- David da Silva Polverari <david.polverari@gmail.com>  Sat, 01 Aug 2020 07:13:47 +0000
+
+pipewalker (0.9.4-3) unstable; urgency=medium
+
+  * QA upload.
+  * Set Debian QA Group as maintainer. (See #826925)
+  * Included an additional theme and a theme template found on upstream site
+    into package. Consequently:
+      - debian/examples: created to install the template.
+      - debian/extra/New Year.png: included to provide the additional theme.
+      - debian/extra/scheme.png: included to provide the upstream theme
+        template.
+      - debian/install: created to install the additional theme.
+      - debian/source/include-binaries: created to include both files in the
+        source package.
+  * Ran wrap-and-sort.
+  * Using new DH level format. Consequently:
+      - debian/compat: removed.
+      - debian/control: changed from 'debhelper' to 'debhelper-compat' in
+        Build-Depends field and bumped level to 13.
+  * debian/control:
+      - Added 'Rules-Requires-Root: no' to source stanza.
+      - Added the Vcs-* fields.
+      - Bumped Standards-Version to 4.5.0.
+      - Changed package synopsis and long description.
+      - Removed redundant build dependencies since DH compatibility level 10.
+  * debian/copyright:
+      - Added a Comment field to document the origin of debian/extra/* files.
+      - Added debian/extra/* paragraph.
+      - Added new rights in debian/* paragraph.
+      - Migrated to 1.0 format.
+  * debian/manpages: added to install a maintainer-provided manpage.
+  * debian/menu: removed to comply with CTTE #741573. (Closes: #738006)
+  * debian/patches/*:
+      - 010_configure-no-werror.patch: renamed from no-werror.diff and added
+        DEP-3 header.
+      - 020_fix-fmt-string-vuln.patch: added to fix a format string
+        vulnerability on upstream code.
+      - 030_fix-xdg-dot-desktop.patch: added to make upstream provided .desktop
+        file conform to XDG Desktop Entry Specification.
+      - 040_fix-build-fhs-games.patch: added to make the build system conform to
+        FHS regarding static data files for /usr/games.
+      - 050_dont-install-menu.patch: added to comply with CTTE #741573.
+      - datadir.diff: no longer needed due to build system adjustments by other
+        patches. Removed.
+  * debian/pipewalker.6: added to provide a manpage to the game binary.
+  * debian/rules:
+      - Added DEB_BUILD_MAINT_OPTIONS variable to provide full GCC hardening.
+      - Changed the '--data-dir' value to suit the modifications made to the
+        build system.
+      - Removed '--with autoreconf' because it is default since DH 10.
+  * debian/salsa-ci.yml: added to provide CI tests for Salsa.
+  * debian/source/lintian-overrides: added to override a lintian message about a
+    maintainer-provided manpage, as it has already been forwarded upstream.
+  * debian/tests/control: created to provide trivial CI tests.
+  * debian/upstream/metadata: created.
+  * debian/watch: bumped to version 4.
+
+ -- David da Silva Polverari <david.polverari@gmail.com>  Sun, 28 Jun 2020 14:53:14 -0500
+
+pipewalker (0.9.4-2) unstable; urgency=low
+
+  * debian/patches/no-werror.diff: Closes: #713336.
+
+ -- Bart Martens <bartm@debian.org>  Mon, 07 Oct 2013 04:03:26 +0000
+
+pipewalker (0.9.4-1) unstable; urgency=low
+
+  * New upstream release.
+  * Switch to dpkg-source 3.0 (quilt) format, debhelper 8, no cdbs.
+  * debian/install: Removed.  Now taken care of by upstream build.
+  * debian/pipewalker.xpm : Removed.  Now shipped and installed by upstream.
+  * debian/menu: Not removed.  Upstream ships extra/pipewalker installed in
+    /usr/share/menu.  The presence of debian/menu makes sure that postinst
+    calls update-menus.
+  * debian/patches/datadir.diff: Added.  The "datadir" is set to
+    /usr/share/games in debian/rules.
+  * debian/control: Build-Depends libpng-dev.
+
+ -- Bart Martens <bartm@debian.org>  Thu, 03 May 2012 17:38:55 +0000
+
+pipewalker (0.9.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Bart Martens <bartm@debian.org>  Sat, 16 Oct 2010 18:30:13 +0000
+
+pipewalker (0.8.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/rules: Fixed dh_desktop-is-deprecated.
+  * debian/pipewalker.xpm: Added, copied from 0.7.2, to have a 32x32.
+
+ -- Bart Martens <bartm@debian.org>  Mon, 27 Sep 2010 17:46:06 +0000
+
+pipewalker (0.7.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/watch: Updated.
+
+ -- Bart Martens <bartm@debian.org>  Thu, 16 Jul 2009 12:10:57 +0200
+
+pipewalker (0.7.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Bart Martens <bartm@debian.org>  Sun, 12 Jul 2009 12:17:41 +0200
+
+pipewalker (0.6.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/patches/02_fix_case.diff: Removed.
+
+ -- Bart Martens <bartm@debian.org>  Sat, 30 May 2009 19:39:45 +0200
+
+pipewalker (0.5.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control: Build-Depends: libsdl1.2-dev.
+  * debian/copyright: Updated.
+  * debian/patches/01_animation_countdown.diff: Removed.
+  * debian/patches/02_fix_case.diff: Added.
+  * debian/pipewalker.desktop: Removed.  Now using upstream's.
+
+ -- Bart Martens <bartm@debian.org>  Thu, 21 May 2009 18:16:00 +0200
+
+pipewalker (0.4.3-2) unstable; urgency=low
+
+  * debian/patches/01_animation_countdown.diff: Added.  Closes: #519416.
+    Limits the animation to maximum 20 times to prevent needless CPU usage.
+
+ -- Bart Martens <bartm@debian.org>  Sat, 18 Apr 2009 19:28:52 +0200
+
+pipewalker (0.4.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/patches/03_dir.diff: Removed.
+  * debian/patches/04_gcc43.diff: Removed.
+
+ -- Bart Martens <bartm@debian.org>  Sun, 29 Jun 2008 21:20:17 +0200
+
+pipewalker (0.3.1-2) unstable; urgency=low
+
+  * debian/patches/04_gcc43.diff: Added.  Closes: #479739.
+
+ -- Bart Martens <bartm@debian.org>  Tue, 06 May 2008 20:39:06 +0200
+
+pipewalker (0.3.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Bart Martens <bartm@debian.org>  Fri, 02 May 2008 20:33:30 +0200
+
+pipewalker (0.2.1-2) unstable; urgency=low
+
+  * debian/pipewalker.desktop: Added.  Closes: #460881.
+
+ -- Bart Martens <bartm@debian.org>  Sun, 03 Feb 2008 08:49:50 +0100
+
+pipewalker (0.2.1-1) unstable; urgency=low
+
+  * Initial version in Debian.  Closes: #432140.
+
+ -- Bart Martens <bartm@knars.be>  Sat,  7 Jul 2007 19:48:02 +0200

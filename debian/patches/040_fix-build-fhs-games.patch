@@ -1,0 +1,25 @@
+Description: fix build system according to FHS
+ This patch fixes the build system paths to suit FHS with respect to games.
+Author: David da Silva Polverari <david.polverari@gmail.com>
+Forwarded: https://github.com/artemsen/pipewalker/pull/4/commits/97eeff42aee8ac702d8d0c9791f1e85bba70c7f4
+Last-Update: 2020-06-16
+
+--- a/configure.in
++++ b/configure.in
+@@ -62,7 +62,7 @@
+ # Set compiler/linker flags
+ AS_IF([test "${WIN32}" = "yes"],
+ 	[CXXFLAGS="$CXXFLAGS -DPW_GAMEDATADIR='\"data\\\\\"'"],
+-	[CXXFLAGS="$CXXFLAGS -DPW_GAMEDATADIR='\"$datadir/$PACKAGE/\"'"]
++	[CXXFLAGS="$CXXFLAGS -DPW_GAMEDATADIR='\"$datadir/games/$PACKAGE/\"'"]
+ )
+ LIBS="$LIBS $OPENGL_LIBS"
+ AS_IF([test "${WIN32}" = "yes"],
+--- a/data/Makefile.am
++++ b/data/Makefile.am
+@@ -1,4 +1,4 @@
+-pkgdatadir = $(datadir)/$(PACKAGE)
++pkgdatadir = $(datadir)/games/$(PACKAGE)
+ pkgdata_DATA = \
+ 	clatz.wav \
+ 	complete.wav \

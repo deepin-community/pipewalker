@@ -1,0 +1,7 @@
+# Maintainer has already asked upstream the inclusion of the manpage [1].
+# Upstream agreed with the inclusion, and manpage was already forwarded [2].
+#
+# [1] https://github.com/artemsen/pipewalker/issues/1
+# [2] https://github.com/artemsen/pipewalker/pull/2
+#
+pipewalker source: maintainer-manual-page debian/pipewalker.6

@@ -1,0 +1,26 @@
+Source: pipewalker
+Section: games
+Priority: optional
+Maintainer: David da Silva Polverari <david.polverari@gmail.com>
+Build-Depends: debhelper-compat (= 13),
+               libgl1-mesa-dev,
+               libglu1-mesa-dev,
+               libpng-dev,
+               libsdl1.2-dev,
+               libxpm-dev
+Standards-Version: 4.6.0
+Rules-Requires-Root: no
+Vcs-Browser: https://salsa.debian.org/debian/pipewalker
+Vcs-Git: https://salsa.debian.org/debian/pipewalker.git
+Homepage: http://pipewalker.sourceforge.net/
+
+Package: pipewalker
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: combination puzzle game
+ This is a puzzle game in which components need to be combined into a single
+ circuit: connect all computers to a network server, bring water to the taps
+ and so on.
+ .
+ The game comes with different themes and support user-provided ones through
+ PNG files.

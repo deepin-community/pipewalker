@@ -1,0 +1,18 @@
+Description: fix a format string vulnerability
+ This patch fixes a format string vulnerability that caused the build to fail
+ when using -Werror during compilation.
+Author: David da Silva Polverari <david.polverari@gmail.com>
+Forwarded: https://github.com/artemsen/pipewalker/pull/4/commits/a7ab32b4e60565fcf3c626ae629d0ae1857d5d9b
+Last-Update: 2020-06-14
+
+--- a/src/main.cpp
++++ b/src/main.cpp
+@@ -238,7 +238,7 @@
+ 			MessageBoxA(NULL, msg, "PipeWalker " PACKAGE_VERSION, MB_OK | MB_ICONINFORMATION);
+ #else
+ 			printf("PipeWalker version " PACKAGE_VERSION "\n");
+-			printf(msg);
++			printf("%s", msg);
+ #endif // WIN32
+ 			app_exit = true;
+ 		}

@@ -1,0 +1,33 @@
+Description: stop using -Werror on configure.in
+ For autoconf input files, the file name 'configure.in' has been deprecated in
+ favor of 'configure.ac' for a while now, with modern autotools versions
+ issuing a warning about this fact.
+ .
+ The usage of a 'configure.in' script with '-Werror' causes a FTBFS because of
+ the old file name. This patch fixes the problem by removing that flag from the
+ input script.
+Author: Bart Martens <bartm@debian.org>
+Bug-Debian: https://bugs.debian.org/713336
+Forwarded: https://github.com/artemsen/pipewalker/pull/4/commits/44344a51e4378c81a27f272048629aada4b6dc57
+Last-Update: 2013-10-07
+
+--- a/configure.in
++++ b/configure.in
+@@ -3,7 +3,7 @@
+ 
+ AC_PREREQ(2.64)
+ AC_INIT([PipeWalker], [0.9.4], [artemsen@gmail.com], [], [http://pipewalker.sourceforge.net])
+-AM_INIT_AUTOMAKE([-Wall -Werror])
++AM_INIT_AUTOMAKE([-Wall])
+ AC_CONFIG_SRCDIR([src/cell.cpp])
+ 
+ # Check for some target-specific stuff
+@@ -22,7 +22,7 @@
+ # Check for debug option
+ AC_ARG_ENABLE(debug,
+ 	[AS_HELP_STRING([--enable-debug], [enable debug data generation (default=no)])],
+-	[CXXFLAGS="$CXXFLAGS -g -Wall -Werror -O0"],
++	[CXXFLAGS="$CXXFLAGS -g -Wall -O0"],
+ 	[CXXFLAGS="$CXXFLAGS -DNDEBUG=1 -O3"]
+ )
+ 

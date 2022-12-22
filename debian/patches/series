@@ -1,0 +1,5 @@
+010_configure-no-werror.patch
+020_fix-fmt-string-vuln.patch
+030_fix-xdg-dot-desktop.patch
+040_fix-build-fhs-games.patch
+050_dont-install-menu.patch

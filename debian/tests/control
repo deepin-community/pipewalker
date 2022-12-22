@@ -1,0 +1,13 @@
+Test-Command: pipewalker -help
+Restrictions: superficial
+
+Test-Command: pipewalker -version
+Restrictions: superficial
+
+Test-Command: xvfb-run -a timeout --preserve-status 5 pipewalker
+Depends: @, xauth, xvfb
+Restrictions: allow-stderr
+
+Test-Command: xvfb-run -a timeout --preserve-status 5 pipewalker -id=1234 -wrap=0 -size=big
+Depends: @, xauth, xvfb
+Restrictions: allow-stderr

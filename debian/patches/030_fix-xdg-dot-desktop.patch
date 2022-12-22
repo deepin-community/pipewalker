@@ -1,0 +1,15 @@
+Description: fix XDG .desktop entries
+ This patch removes the 'MimeType' and adds the 'Keywords' entries on the
+ upstream XDG .desktop file.
+Author: David da Silva Polverari <david.polverari@gmail.com>
+Forwarded: https://github.com/artemsen/pipewalker/pull/5
+Last-Update: 2020-06-15
+
+--- a/extra/pipewalker.desktop
++++ b/extra/pipewalker.desktop
+@@ -9,4 +9,4 @@
+ Exec=pipewalker
+ Categories=Game;LogicGame;
+ Icon=pipewalker.xpm
+-MimeType=
++Keywords=circuit;combination;components;connect;game;logic;puzzle;

@@ -1,0 +1,21 @@
+Description: do not install menu file
+ As upstream installation procedure provides both a menu and a XDG desktop
+ file, this patch avoids the installation of the menu file, in accordance with
+ CTTE #741573 [1] and Debian Policy Manual section 9.6 (Menus).
+ .
+ [1] https://lists.debian.org/debian-devel-announce/2015/09/msg00000.html
+Author: David da Silva Polverari <david.polverari@gmail.com>
+Forwarded: https://github.com/artemsen/pipewalker/pull/4/commits/ec180d40b3d88c4d8354bb9b1c277bfeb0c8e205
+Last-Update: 2020-06-26
+
+--- a/extra/Makefile.am
++++ b/extra/Makefile.am
+@@ -5,7 +5,7 @@
+ pkgpixmapdata_DATA = pipewalker.xpm
+ 
+ pkgmenudatadir = $(datadir)/menu
+-pkgmenudata_DATA = pipewalker
++pkgmenudata_DATA =
+ 
+ EXTRA_DIST = \
+ 	$(pkgdesktopdata_DATA) \
